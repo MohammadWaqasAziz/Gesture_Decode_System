@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture Decode System - Real-Time Detection</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #8a2be2, #4b0082);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    img {
+      width: 80%; /* Reduce the size of the camera frame */
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #6c63ff;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #6c63ff;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn:hover {
+      background-color: #5753d7;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Real-Time Detection</h1>
+    <img src="{{ url_for('video_feed') }}" title="Camera Feed" />
+    <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+  </div>
+</body>
+</html>

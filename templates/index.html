@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture Decode System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #6c63ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+    }
+    .video-container {
+      width: 66%;
+      max-width: 329px;
+      margin-bottom: 0px;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .header {
+      padding: 20px 0;
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header .logo {
+      display: flex;
+      align-items: center;
+    }
+    .header .logo img {
+      width: 100px;
+      margin-right: 10px;
+    }
+    .header-container {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-style: italic;
+      background-color: #555;
+      padding: 0px 10px;
+      border-radius: 5px;
+      margin: 20px 0px 25px 0px;
+    }
+    label.upload-btn {
+      display: inline-block;
+      background-image: url("../static/images/upload.png");
+      background-size: cover;
+      width: 70px;
+      height: 70px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    label.upload-btn:hover {
+      transform: scale(1.1);
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .filename {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+    .predict-btn {
+      background-color: #6c63ff;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 20px;
+      margin-bottom: 30px; /* Added margin-bottom for space */
+    }
+    .predict-btn:hover {
+      background-color: #5753d7;
+      transform: scale(1.05);
+    }
+    .real-time-btn {
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 10px; /* Adjusted margin-top for space */
+    }
+    .real-time-btn:hover {
+      background-color: #e64a19;
+      transform: scale(1.05);
+    }
+    .hero {
+      padding: 60 0;
+    }
+    .hero .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 42px auto;
+    }
+    .hero .content {
+      text-align: center;
+      width: 50%;
+    }
+    .hero .content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero .content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    .hero .content ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .hero .content ul li {
+      display: flex;
+      align-items: center;
+    }
+    .hero .content ul li i {
+      margin-right: 10px;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ffc107;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+    .button:hover {
+      opacity: 0.8;
+    }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../static/images/logo-black.png" alt="Gesture Decode System">
+        <h1>Gesture Decode System</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="content">
+        <h1>Recognize and Interpret Human Gestures</h1>
+        <p>Using advanced AI algorithms for gesture recognition and interpretation.</p>
+        <ul>
+          <li><i></i> Provide a video for analysis</li>
+          <li><i></i> Deep learning model integration</li>
+          <li><i></i> Accessibility and interactive systems</li>
+        </ul>
+      </div>
+      <div class="video-container">
+        <video controls style="max-width: 60%; height: auto;">
+          <source src="../static/videos/output.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <div class="form-container">
+    <form action="/" method="post" enctype="multipart/form-data">
+      <label for="video" class="upload-btn" aria-label="Upload"></label>
+      <input
+        type="file"
+        id="video"
+        name="video"
+        accept="video/*"
+        onchange="displayFilename(this)"
+      />
+      <div id="filename" class="filename">No file chosen</div>
+      <button type="submit" class="predict-btn">Predict Action</button>
+    </form>
+    <a href="{{ url_for('real_time') }}" class="real-time-btn">Real-Time Detection</a>
+  </div>
+
+  <script>
+    function displayFilename(input) {
+      const filenameDisplay = document.getElementById("filename");
+      if (input.files.length > 0) {
+        filenameDisplay.textContent = input.files[0].name;
+      } else {
+        filenameDisplay.textContent = "No file chosen";
+      }
+    }
+  </script>
+</body>
+</html>
